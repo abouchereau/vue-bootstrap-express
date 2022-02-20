@@ -1,0 +1,17 @@
+{
+  "bin": "index.js",
+  "name": "pkgexpress",
+  "pkg": {
+    "assets": [
+      "public/**/*"
+    ],
+    "targets": [
+      "node12-linux-x64"
+    ],
+    "outputPath": "target"
+  },
+  "dependencies": {
+    "express": "^4.17.3",
+    "pkg": "^5.5.2"
+  }
+}
