@@ -13,7 +13,7 @@ const getFiles = path => {
     }
     return files
 }
-
+//express.static.mime.define({'application/javascript;': ['vue']});
 app.use(express.static('public'));
 
 app.get('/', (req, res)=>res.sendFile(__dirname +'/public/index.html'));
@@ -22,7 +22,9 @@ app.get('/', (req, res)=>res.sendFile(__dirname +'/public/index.html'));
 let publicPath = __dirname+'/public';
 let files = getFiles(publicPath);
 for(let file of files) {
-    app.get("/"+file, (req, res) =>res.sendFile(publicPath+"/"+file));
+    app.get("/"+file, (req, res) =>{
+        res.sendFile(publicPath+"/"+file);
+    });
 }
 
 app.listen(port, ()=>console.log(`Open your favorite browser and go the URL : http://localhost:${port}`))
