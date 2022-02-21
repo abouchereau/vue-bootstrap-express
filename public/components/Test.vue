@@ -36,7 +36,7 @@ export default {
       this.socket.send("Hi !");
     },
     initSocket() {
-      this.socket = new WebSocket("ws://localhost:3616");
+      this.socket = new WebSocket("ws://localhost:3617");
       this.socket.onmessage = (msg)=>{
         this.trucs = JSON.parse(msg.data);
       };

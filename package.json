@@ -1,9 +1,10 @@
 {
   "bin": "index.js",
-  "name": "pkgexpress",
+  "name": "My Super App",
   "pkg": {
     "assets": [
-      "public/**/*"
+      "public/**/*",
+      "src/**/*"
     ],
     "targets": [
       "node14-linux-x64",
