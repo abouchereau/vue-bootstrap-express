@@ -10,7 +10,6 @@ socket.on('request', (request) => {
     let connection = request.accept(null, request.origin);
     console.log("Socket connected through port " + portSocket);
     connection.on('message', (msg) => {
-        //console.log("MEssage = ",message);
         let trucs = [
             {"name": "Yop", "age": 25},
             {"name": "Yip", "age": 52},

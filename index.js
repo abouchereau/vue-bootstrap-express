@@ -1,10 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 3615;
-const portSocket = 3616;
 const fs = require('fs');
-const server = require('websocket').server;
-const http   = require('http');
 const childProcess = require('child_process');
 const packageJson = require('./package.json');
 
@@ -36,7 +33,7 @@ for(let file of files) {
 let child = childProcess.fork(__dirname + "/src/child.js");
 
 app.listen(port, ()=>{
-    console.log("Welcome to "+packageJson.name+" - by Anthony Bouchereau - 2022");
+    console.log("Welcome to "+packageJson.name+" - by "+packageJson.author+" - 2022");
     console.log("");
     console.log(`Now please open your favorite browser and go the URL : http://localhost:${port}`)
 })

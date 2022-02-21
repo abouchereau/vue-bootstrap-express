@@ -1,6 +1,7 @@
 {
   "bin": "index.js",
   "name": "My Super App",
+  "author": "Anthony Bouchereau",
   "pkg": {
     "assets": [
       "public/**/*",
