@@ -4,43 +4,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="/js/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue3-sfc-loader/dist/vue3-sfc-loader.js"></script>
+    <script src="/js/utils.js"></script>
+    <script src="/js/vue3-sfc-loader.js"></script>
     <link href="/css/bootstrap.css" rel="stylesheet">
     <title>App Node Vue Bootstrap Express...</title>
 </head>
 <body>
 <div class="container" id="app">
-    <test></test>
-    <br/><button class="btn btn-outline-primary"> YO</button></div>
-
+    <app></app>
+</div>
+</body>
 <script>
-
-    const options = {
-        moduleCache: {
-            vue: Vue
-        },
-        async getFile(url) {
-
-            const res = await fetch(url);
-            if ( !res.ok )
-                throw Object.assign(new Error(res.statusText + ' ' + url), { res });
-            return {
-                getContentData: asBinary => asBinary ? res.arrayBuffer() : res.text(),
-            }
-        },
-        addStyle(textContent) {
-
-            const style = Object.assign(document.createElement('style'), { textContent });
-            const ref = document.head.getElementsByTagName('style')[0] || null;
-            document.head.insertBefore(style, ref);
-        },
-    }
-
     const { loadModule } = window['vue3-sfc-loader'];
-
     Vue.createApp({
         components: {
-            'test': Vue.defineAsyncComponent( () => loadModule('./components/Test.vue', options) )
+            'app': Vue.defineAsyncComponent( () => loadModule('./components/App.vue', Utils.loadModuleOptions()) )
         },
         data() {
             return {
@@ -48,10 +26,6 @@
             }
         }
     }).mount('#app');
-
-
-
 </script>
 <script src="/js/bootstrap.js"></script>
-</body>
 </html>

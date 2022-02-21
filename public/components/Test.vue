@@ -1,6 +1,21 @@
 <template>
   <div>
-    <h1>Test ABC</h1>
+    <h2>Mes trucs</h2>
+    <button class="btn btn-primary" @click="loadTrucs()">Mettre à jour</button>
+    <table class="table table-striped table-hover">
+      <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr v-for="truc in trucs">
+        <td>{{ truc.name }}</td>
+        <td>{{ truc.age }}</td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -9,7 +24,22 @@ export default {
   name: 'test',
   data() {
     return {
-
+      socket: null,
+      trucs: []
+    }
+  },
+  mounted (){
+    this.initSocket();
+  },
+  methods: {
+    loadTrucs() {
+      this.socket.send("Hi !");
+    },
+    initSocket() {
+      this.socket = new WebSocket("ws://localhost:3616");
+      this.socket.onmessage = (msg)=>{
+        this.trucs = JSON.parse(msg.data);
+      };
     }
   }
 }

@@ -6,12 +6,14 @@
       "public/**/*"
     ],
     "targets": [
-      "node12-linux-x64"
+      "node14-linux-x64",
+      "node14-win-x64"
     ],
     "outputPath": "target"
   },
   "dependencies": {
     "express": "^4.17.3",
-    "pkg": "^5.5.2"
+    "pkg": "^5.5.2",
+    "websocket": "^1.0.34"
   }
 }
