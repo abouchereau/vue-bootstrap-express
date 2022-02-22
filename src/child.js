@@ -1,6 +1,6 @@
 const server = require('websocket').server;
 const http   = require('http');
-const Const = require("./../public/js/Const");
+const Const = require("./../public/js/const");
 
 
 const socket = new server({httpServer: http.createServer().listen(Const.SOCKET_PORT, ()=>{})});
