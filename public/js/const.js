@@ -4,5 +4,7 @@ class Const {
     static get APP_PORT() {return 3615;}
     static get SOCKET_PORT() {return 3616;}
 }
-
-module.exports = Const;
+//class both for Node and Front
+if (typeof module != "undefined") {
+    module.exports = Const;
+}
