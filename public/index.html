@@ -3,21 +3,24 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/js/const.js"></script>
     <script src="/js/vue.js"></script>
     <script src="/js/utils.js"></script>
     <script src="/js/vue3-sfc-loader.js"></script>
     <link href="/css/bootstrap.css" rel="stylesheet">
     <title>App Node Vue Bootstrap Express...</title>
 </head>
-<body>
-<div class="container" id="app">
-    <app></app>
-</div>
+<body id="app">
+    <navbar></navbar>
+    <div class="container">
+        <app></app>
+    </div>
 </body>
 <script>
     const { loadModule } = window['vue3-sfc-loader'];
     Vue.createApp({
         components: {
+            'navbar': Vue.defineAsyncComponent( ()=>loadModule('./components/Navbar.vue', Utils.loadModuleOptions())),
             'app': Vue.defineAsyncComponent( () => loadModule('./components/App.vue', Utils.loadModuleOptions()) )
         },
         data() {

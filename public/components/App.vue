@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>My App</h1>
+    <h1>{{ appName }}</h1>
     <test></test>
   </div>
 </template>
@@ -9,10 +9,11 @@
 export default {
   name: 'app',
   components: {
-    'test': Vue.defineAsyncComponent( () => loadModule('./components/Test.vue', Utils.loadModuleOptions()) )
+    'test': Vue.defineAsyncComponent( ()=>loadModule('./components/Test.vue', Utils.loadModuleOptions()))
   },
   data() {
     return {
+      appName: Const.APP_NAME
 
     }
   }

@@ -1,14 +1,13 @@
 const server = require('websocket').server;
 const http   = require('http');
-const portSocket = 3617;
+const Const = require("./../public/js/Const");
 
 
-
-const socket = new server({httpServer: http.createServer().listen(portSocket, ()=>{})});
+const socket = new server({httpServer: http.createServer().listen(Const.SOCKET_PORT, ()=>{})});
 socket.on('error', (err)=>console.error("Error: " + err.message));
 socket.on('request', (request) => {
     let connection = request.accept(null, request.origin);
-    console.log("Socket connected through port " + portSocket);
+    console.log("Socket connected through port " + Const.SOCKET_PORT);
     connection.on('message', (msg) => {
         let trucs = [
             {"name": "Yop", "age": 25},

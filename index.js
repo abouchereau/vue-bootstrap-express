@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
-const port = 3615;
 const fs = require('fs');
 const childProcess = require('child_process');
 const packageJson = require('./package.json');
+const Const = require("./public/js/Const");
 
 const getFiles = path => {
     const files = []
@@ -32,10 +32,10 @@ for(let file of files) {
 
 let child = childProcess.fork(__dirname + "/src/child.js");
 
-app.listen(port, ()=>{
-    console.log("Welcome to "+packageJson.name+" - by "+packageJson.author+" - 2022");
+app.listen(Const.APP_PORT, ()=>{
+    console.log("Welcome to "+Const.APP_NAME+" - by "+packageJson.author+" - 2022");
     console.log("");
-    console.log(`Now please open your favorite browser and go the URL : http://localhost:${port}`)
+    console.log(`Now please open your favorite browser and go the URL : http://localhost:${Const.APP_PORT}`)
 })
 
 
