@@ -3,7 +3,7 @@ const app = express();
 const fs = require('fs');
 const childProcess = require('child_process');
 const packageJson = require('./package.json');
-const Const = require("./public/js/Const");
+const Const = require("./public/js/const");
 
 const getFiles = path => {
     const files = []
